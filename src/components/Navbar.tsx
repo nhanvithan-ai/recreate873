@@ -34,14 +34,6 @@ export default function Navbar() {
     product.subcategory.toLowerCase().includes(search.toLowerCase())
   ).slice(0, 6);
 
-  // WhatsApp click handler (YOUR NUMBER)
-  const handleWhatsAppClick = () => {
-    window.open(
-      "https://wa.me/917075192712?text=Hi%20I%20am%20interested%20in%20your%20products",
-      "_blank"
-    );
-  };
-
   return (
     <nav
       className="
@@ -129,31 +121,19 @@ export default function Navbar() {
         {/* RIGHT */}
         <div className="flex items-center space-x-6 md:space-x-8">
 
-          {/* WHATSAPP ICON (YOUR EXISTING ICON LOGIC) */}
-          <button
-            onClick={handleWhatsAppClick}
-            className="text-green-400 hover:text-green-300 transition-colors"
-            title="Chat on WhatsApp"
-          >
-            {/* KEEP YOUR EXISTING WHATSAPP ICON HERE */}
-            {/* Example: MessageCircle / WhatsApp SVG */}
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-5 h-5"
-            >
-              <path d="M12 2a10 10 0 00-8.94 14.48L2 22l5.7-1.5A10 10 0 1012 2zm0 18a8 8 0 01-4.06-1.1l-.29-.17-3.38.9.9-3.29-.18-.3A8 8 0 1112 20zm4.32-5.1c-.24-.12-1.4-.69-1.62-.77-.22-.08-.38-.12-.54.12-.16.24-.62.77-.76.93-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.44-1.34-1.68-.14-.24-.02-.36.1-.48.1-.1.24-.26.36-.4.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.2-.48-.4-.42-.54-.42h-.46c-.16 0-.42.06-.64.3-.22.24-.86.84-.86 2.04s.88 2.36 1 2.52c.12.16 1.72 2.64 4.16 3.7.58.25 1.04.4 1.4.51.58.18 1.1.16 1.52.1.46-.07 1.4-.57 1.6-1.12.2-.55.2-1.02.14-1.12-.06-.1-.22-.16-.46-.28z"/>
-            </svg>
-          </button>
-
           {/* WISHLIST */}
-          <Link to="/wishlist" className="relative text-white hover:text-yellow-400 transition-colors">
+          <Link
+            to="/wishlist"
+            className="relative text-white hover:text-yellow-400 transition-colors"
+          >
             <Heart className="w-5 h-5" />
           </Link>
 
           {/* CART */}
-          <Link to="/cart" className="relative text-white hover:text-yellow-400 transition-colors">
+          <Link
+            to="/cart"
+            className="relative text-white hover:text-yellow-400 transition-colors"
+          >
             <ShoppingCart className="w-5 h-5" />
           </Link>
 
@@ -164,7 +144,11 @@ export default function Navbar() {
           >
             <div className="w-9 h-9 rounded-full border border-yellow-400/30 overflow-hidden">
               {user?.photoURL ? (
-                <img src={user.photoURL} className="w-full h-full object-cover" />
+                <img
+                  src={user.photoURL}
+                  className="w-full h-full object-cover"
+                  alt="profile"
+                />
               ) : (
                 <UserIcon className="w-full h-full p-1.5" />
               )}
