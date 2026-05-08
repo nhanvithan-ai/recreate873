@@ -38,9 +38,9 @@ export default function Home() {
       <ParticleEmbers />
 
       {/* HERO SECTION */}
-      <section className="relative h-screen overflow-hidden flex items-center justify-center px-6">
+      <section className="relative h-screen overflow-hidden flex items-center justify-center px-6 pt-24">
 
-        {/* VIDEO */}
+        {/* VIDEO BACKGROUND */}
         <video
           autoPlay
           muted
@@ -52,37 +52,85 @@ export default function Home() {
             w-full
             h-full
             object-cover
-            brightness-[0.45]
-            scale-110
-            md:scale-100
+            object-center
+            scale-[1.08]
+            brightness-[0.42]
+            contrast-[1.15]
+            saturate-[1.2]
           "
         >
           <source src={timelineVideo} type="video/mp4" />
         </video>
 
-        {/* MAIN DARK OVERLAY */}
-        <div className="absolute inset-0 bg-black/60" />
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-black/50 z-[1]" />
 
-        {/* TOP GLOW */}
-        <div className="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-yellow-500/10 blur-[150px] rounded-full animate-pulse" />
+        {/* GOLD LIGHT */}
+        <div
+          className="
+            absolute
+            top-[-20%]
+            left-[-10%]
+            w-[700px]
+            h-[700px]
+            bg-yellow-400/20
+            blur-[180px]
+            rounded-full
+            animate-pulse
+            z-[2]
+          "
+        />
 
-        {/* BOTTOM GLOW */}
-        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] bg-orange-500/10 blur-[150px] rounded-full animate-pulse" />
+        {/* ORANGE LIGHT */}
+        <div
+          className="
+            absolute
+            bottom-[-20%]
+            right-[-10%]
+            w-[700px]
+            h-[700px]
+            bg-orange-500/20
+            blur-[180px]
+            rounded-full
+            animate-pulse
+            z-[2]
+          "
+        />
+
+        {/* CENTER GLOW */}
+        <div
+          className="
+            absolute
+            inset-0
+            opacity-40
+            bg-[radial-gradient(circle_at_center,rgba(255,180,0,0.15),transparent_60%)]
+            animate-pulse
+            z-[2]
+          "
+        />
 
         {/* FLOATING PARTICLES */}
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden z-[2]">
+          <div className="absolute top-[10%] left-[15%] w-2 h-2 rounded-full bg-yellow-300 animate-ping opacity-70" />
 
-          <div className="absolute top-[15%] left-[10%] w-2 h-2 bg-yellow-300 rounded-full animate-bounce opacity-70" />
+          <div className="absolute top-[25%] right-[20%] w-3 h-3 rounded-full bg-orange-400 animate-bounce opacity-60" />
 
-          <div className="absolute top-[30%] right-[15%] w-3 h-3 bg-orange-400 rounded-full animate-pulse opacity-60" />
+          <div className="absolute bottom-[18%] left-[25%] w-2 h-2 rounded-full bg-white animate-pulse opacity-50" />
 
-          <div className="absolute bottom-[20%] left-[25%] w-2 h-2 bg-white rounded-full animate-ping opacity-50" />
+          <div className="absolute bottom-[22%] right-[15%] w-4 h-4 rounded-full bg-yellow-200 animate-ping opacity-40" />
 
-          <div className="absolute bottom-[15%] right-[20%] w-4 h-4 bg-yellow-200 rounded-full animate-bounce opacity-40" />
-
-          <div className="absolute top-[50%] left-[50%] w-2 h-2 bg-orange-300 rounded-full animate-pulse opacity-40" />
-
+          <div className="absolute top-[50%] left-[50%] w-2 h-2 rounded-full bg-orange-300 animate-bounce opacity-40" />
         </div>
+
+        {/* VIGNETTE */}
+        <div
+          className="
+            absolute
+            inset-0
+            z-[2]
+            bg-[radial-gradient(circle,transparent_40%,rgba(0,0,0,0.92)_100%)]
+          "
+        />
 
         {/* HERO CONTENT */}
         <motion.div
@@ -109,7 +157,6 @@ export default function Home() {
 
           {/* MAIN TITLE */}
           <div className="relative">
-
             <h1
               className="
                 text-6xl
@@ -147,18 +194,15 @@ export default function Home() {
             >
               873
             </span>
-
           </div>
 
-          {/* DECORATIVE LINE */}
+          {/* LINE */}
           <div className="flex items-center justify-center gap-4 mt-8">
-
             <div className="w-20 h-[1px] bg-gradient-to-r from-transparent to-yellow-400" />
 
-            <div className="w-2 h-2 rounded-full bg-yellow-400" />
+            <div className="w-2 h-2 rounded-full bg-yellow-400 animate-pulse" />
 
             <div className="w-20 h-[1px] bg-gradient-to-l from-transparent to-yellow-400" />
-
           </div>
 
           {/* TAGLINE */}
@@ -211,13 +255,11 @@ export default function Home() {
 
         {/* SCROLL INDICATOR */}
         <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
-
           <motion.div
             animate={{ y: [0, 12, 0] }}
             transition={{ repeat: Infinity, duration: 2 }}
             className="flex flex-col items-center"
           >
-
             <div className="w-[1px] h-16 bg-gradient-to-b from-yellow-400 to-transparent mb-3" />
 
             <span
@@ -230,9 +272,7 @@ export default function Home() {
             >
               Scroll
             </span>
-
           </motion.div>
-
         </div>
       </section>
 
@@ -240,13 +280,11 @@ export default function Home() {
       <section className="py-32 px-6 max-w-7xl mx-auto">
 
         <div className="flex flex-col items-center mb-24 text-center">
-
           <h2 className="text-5xl md:text-7xl font-serif text-white mb-6">
             Our Collections
           </h2>
 
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent" />
-
         </div>
 
         {/* CATEGORY CARDS */}
@@ -335,7 +373,6 @@ export default function Home() {
                   {cat.description}
                 </p>
 
-                {/* DISCOVER BUTTON */}
                 <Link
                   to={`/category/${cat.id}`}
                   className="
@@ -361,10 +398,12 @@ export default function Home() {
                 </Link>
 
               </div>
+
             </motion.div>
           ))}
 
         </div>
+
       </section>
 
       {/* COLLECTION SECTION */}
@@ -379,7 +418,6 @@ export default function Home() {
           <div className="flex flex-col md:flex-row items-center justify-between mb-20 gap-12">
 
             <div>
-
               <h2 className="text-4xl md:text-6xl font-serif mb-4 text-white">
                 Complete Anthology
               </h2>
@@ -387,7 +425,6 @@ export default function Home() {
               <p className="italic text-xl tracking-widest text-white/60">
                 Handmade perfection for every occasion.
               </p>
-
             </div>
 
             {/* FILTER */}
@@ -450,11 +487,9 @@ export default function Home() {
                 transition-all
               "
             >
-
               <span>View All Artistry</span>
 
               <ShoppingBag className="w-4 h-4" />
-
             </motion.button>
 
           </div>
@@ -462,6 +497,7 @@ export default function Home() {
         </div>
 
       </section>
+
     </div>
   );
 }
