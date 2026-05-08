@@ -112,29 +112,6 @@ export default function Home() {
           "
         />
 
-        {/* FLOATING PARTICLES */}
-        <div className="absolute inset-0 overflow-hidden z-[2]">
-          <div className="absolute top-[10%] left-[15%] w-2 h-2 rounded-full bg-yellow-300 animate-ping opacity-70" />
-
-          <div className="absolute top-[25%] right-[20%] w-3 h-3 rounded-full bg-orange-400 animate-bounce opacity-60" />
-
-          <div className="absolute bottom-[18%] left-[25%] w-2 h-2 rounded-full bg-white animate-pulse opacity-50" />
-
-          <div className="absolute bottom-[22%] right-[15%] w-4 h-4 rounded-full bg-yellow-200 animate-ping opacity-40" />
-
-          <div className="absolute top-[50%] left-[50%] w-2 h-2 rounded-full bg-orange-300 animate-bounce opacity-40" />
-        </div>
-
-        {/* VIGNETTE */}
-        <div
-          className="
-            absolute
-            inset-0
-            z-[2]
-            bg-[radial-gradient(circle,transparent_40%,rgba(0,0,0,0.92)_100%)]
-          "
-        />
-
         {/* HERO CONTENT */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -142,8 +119,6 @@ export default function Home() {
           transition={{ duration: 1.4 }}
           className="relative z-10 text-center max-w-6xl"
         >
-
-          {/* SUBTITLE */}
           <p
             className="
               uppercase
@@ -158,7 +133,6 @@ export default function Home() {
             EST. 2020 · HYDERABAD
           </p>
 
-          {/* MAIN TITLE */}
           <div className="relative">
             <h1
               className="
@@ -199,7 +173,6 @@ export default function Home() {
             </span>
           </div>
 
-          {/* LINE */}
           <div className="flex items-center justify-center gap-4 mt-8">
             <div className="w-20 h-[1px] bg-gradient-to-r from-transparent to-yellow-400" />
 
@@ -208,7 +181,6 @@ export default function Home() {
             <div className="w-20 h-[1px] bg-gradient-to-l from-transparent to-yellow-400" />
           </div>
 
-          {/* TAGLINE */}
           <p
             className="
               mt-8
@@ -223,7 +195,6 @@ export default function Home() {
             Where Tradition Meets Artistry
           </p>
 
-          {/* BUTTON */}
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.96 }}
@@ -253,31 +224,191 @@ export default function Home() {
               <ArrowDown className="w-4 h-4" />
             </div>
           </motion.button>
-
         </motion.div>
+      </section>
 
-        {/* SCROLL INDICATOR */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-10">
-          <motion.div
-            animate={{ y: [0, 12, 0] }}
-            transition={{ repeat: Infinity, duration: 2 }}
-            className="flex flex-col items-center"
-          >
-            <div className="w-[1px] h-16 bg-gradient-to-b from-yellow-400 to-transparent mb-3" />
+      {/* CATEGORY SECTION */}
+      <section className="py-32 px-6 max-w-7xl mx-auto">
 
-            <span
+        <div className="flex flex-col items-center mb-24 text-center">
+          <h2 className="text-5xl md:text-7xl font-serif text-white mb-6">
+            Our Collections
+          </h2>
+
+          <div className="w-24 h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent" />
+        </div>
+
+        {/* CATEGORY CARDS */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+
+          {CATEGORIES.map((cat, idx) => (
+            <motion.div
+              key={cat.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.2 }}
               className="
-                text-white/50
-                text-[10px]
-                tracking-[0.4em]
-                uppercase
+                group
+                relative
+                h-[600px]
+                rounded-[40px]
+                overflow-hidden
+                border
+                border-white/10
+                bg-white/5
+                backdrop-blur-xl
               "
             >
-              Scroll
-            </span>
-          </motion.div>
+
+              <div
+                className="
+                  absolute
+                  inset-0
+                  transition-transform
+                  duration-[2500ms]
+                  group-hover:scale-125
+                "
+                style={{
+                  backgroundImage: `url(${cat.image})`,
+                  backgroundSize: "cover",
+                  backgroundPosition: "center"
+                }}
+              />
+
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black/10" />
+
+              <div className="absolute inset-0 flex flex-col justify-end p-12 text-center items-center space-y-6">
+
+                <h3
+                  className="
+                    text-4xl
+                    md:text-5xl
+                    font-serif
+                    font-semibold
+                    text-yellow-300
+                  "
+                >
+                  {cat.title}
+                </h3>
+
+                <p className="text-sm italic text-white/70 tracking-widest leading-relaxed">
+                  {cat.description}
+                </p>
+
+                <Link
+                  to={`/category/${cat.id}`}
+                  className="
+                    px-8
+                    py-3
+                    rounded-full
+                    text-[10px]
+                    uppercase
+                    tracking-[0.35em]
+                    border
+                    border-yellow-500/30
+                    text-yellow-300
+                    bg-black/20
+                  "
+                >
+                  Discover →
+                </Link>
+
+              </div>
+
+            </motion.div>
+          ))}
+
         </div>
+
       </section>
+
+      {/* COLLECTION SECTION */}
+      <section
+        ref={collectionRef}
+        className="py-32 bg-black/40 backdrop-blur-3xl border-t border-white/5"
+      >
+
+        <div className="max-w-7xl mx-auto px-6">
+
+          <div className="flex flex-col md:flex-row items-center justify-between mb-20 gap-12">
+
+            <div>
+              <h2 className="text-4xl md:text-6xl font-serif mb-4 text-white">
+                Complete Anthology
+              </h2>
+
+              <p className="italic text-xl tracking-widest text-white/60">
+                Handmade perfection for every occasion.
+              </p>
+            </div>
+
+            <div className="flex items-center bg-white/5 backdrop-blur-xl p-2 rounded-full border border-white/10">
+
+              {(["all", "men", "women", "kids"] as const).map((tab) => (
+                <button
+                  key={tab}
+                  onClick={() => setActiveTab(tab)}
+                  className={`px-8 py-3 rounded-full text-[10px] uppercase tracking-[0.3em] transition-all ${
+                    activeTab === tab
+                      ? "bg-orange-500 text-white font-bold shadow-lg"
+                      : "text-white/40 hover:text-white"
+                  }`}
+                >
+                  {tab}
+                </button>
+              ))}
+
+            </div>
+
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+
+            {filteredProducts.map((product, idx) => (
+              <motion.div
+                key={product.id}
+                initial={{ opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: (idx % 4) * 0.1 }}
+              >
+                <ProductCard product={product} />
+              </motion.div>
+            ))}
+
+          </div>
+
+          <div className="mt-24 text-center">
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              className="
+                inline-flex
+                items-center
+                space-x-4
+                px-12
+                py-5
+                border
+                border-yellow-500/30
+                text-yellow-400
+                text-[10px]
+                uppercase
+                tracking-[0.4em]
+                rounded-full
+              "
+            >
+              <span>View All Artistry</span>
+
+              <ShoppingBag className="w-4 h-4" />
+            </motion.button>
+
+          </div>
+
+        </div>
+
+      </section>
+
     </div>
   );
 }
