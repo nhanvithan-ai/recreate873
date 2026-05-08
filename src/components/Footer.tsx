@@ -1,4 +1,11 @@
 import { Mail, MapPin, Instagram, Facebook, Youtube, Share2, Send } from "lucide-react";
+
+                <a href="#" className="p-3 glass rounded-full hover:bg-gold/10 hover:text-gold transition-all">
+                  <Share2 className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
